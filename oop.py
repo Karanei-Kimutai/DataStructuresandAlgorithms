@@ -67,7 +67,7 @@ class ShoppingCart:
 
     def add_item(self,item_name,quantity):
         item=(item_name,quantity)
-        self.items.append()
+        self.items.append(item)
 
     def remove_item(self,item_name):
         for item in self.items:
