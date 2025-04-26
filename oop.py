@@ -54,39 +54,3 @@ student1.showdetails()
 #'self' is explicitly passed as the first parameter in instance methods
 
 #the super() method is used to access inherited attributes and methods-similar to the super keyword in Java
-
-
-
-
-
-
-#Class example
-class ShoppingCart:
-    def __init__(self):
-        self.items=[]
-
-    def add_item(self,item_name,quantity):
-        item=(item_name,quantity)
-        self.items.append(item)
-
-    def remove_item(self,item_name):
-        for item in self.items:
-            if item[0]==item_name:
-                self.items.remove(item)
-                break
-
-    def calculate_total_items(self):
-        total=0
-        for item in self.items:
-            total+=1
-        return total
-
-Cart1=ShoppingCart()
-Cart1.add_item("Apple",1)
-Cart1.add_item("Ground beef",5)
-Cart1.add_item("Banana",7)
-
-print("Current items in cart")
-for item in Cart1.items:
-    print(item[0]+"-"+item[1])
-
