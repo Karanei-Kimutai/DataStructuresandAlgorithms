@@ -32,7 +32,7 @@ class discountedCart(shoppingCart):
 
     #polymorphism
     def calculateTotal(self):
-        return super().calculateTotal()*self.discountRate
+        return super().calculateTotal()*(1-self.discountRate)
 
 #Creating a subclass that applies a tax on the sales
 class taxedCart(shoppingCart):
