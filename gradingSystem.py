@@ -1,18 +1,24 @@
-while True:
-    try:
-        numberofstudents = int(input("Enter the number of students you want to grade: "))
-        if numberofstudents <= 0:
+def getNumberOfStudents():
+   while True:
+      try:
+         numberofstudents = int(input("Enter the number of students you want to grade: "))
+         if numberofstudents <= 0:
             print("Enter a valid number of students")
-        else:
+         else:
+            return numberofstudents
             break
-    except ValueError:
+      except ValueError:
         print("Invalid Input")
 
-namesofstudents = []
-scoresofstudents = []
+
+
+
+
 
 def getNamesandScores():
-    for i in range(numberofstudents):
+    namesofstudents = []
+    scoresofstudents = []
+    for i in range(getNumberOfStudents()):
         nameinput = input("Enter the name of the student: ")
         while True:
             try:
@@ -26,7 +32,7 @@ def getNamesandScores():
 
         namesofstudents.append(nameinput.strip())
         scoresofstudents.append(scoreinput)
-
+    return [namesofstudents,scoresofstudents]
 def getGrade(score: int):
     match True:
         case _ if score >= 70:
@@ -40,13 +46,14 @@ def getGrade(score: int):
         case _:
             return "F"
 
-def outputResults(names: list[str], scores: list[int]):
+
+def outputResults(namesandscores):
+    names,scores=namesandscores
     print(f"{'Name':<15}{'Score':<10}{'Grade'}")
-    for i in range(numberofstudents):
-        print(f"{namesofstudents[i]:<15}{scoresofstudents[i]:<10.2f}{getGrade(scoresofstudents[i])}")
+    for i in range(len(names)):
+        print(f"{names[i]:<15}{scores[i]:<10.2f}{getGrade(scores[i])}")
 
 
-getNamesandScores()
-outputResults(namesofstudents, scoresofstudents)
+outputResults(getNamesandScores())
 
 
