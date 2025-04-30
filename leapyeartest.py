@@ -10,15 +10,13 @@ while True:
 #The year has to be divisible by 4
 #Then, the year either has to be divisible by both 100 and 400 or neither
 if year%4==0:
-    if year%100==0 and year%400==0:
-        print("The year is a leap year")
-    elif year%100==0 and year%400!=0:
-        print("The year is not a leap year")
+    if year%100==0:
+        if year%400==0:
+            print("This year is a leap year")
+        else:
+            print("This is not a leap year")
     else:
-        print("This is a leap year:")
-
+        print("This is a leap year")
 else:
     print("This is not a leap year")
-
-
 #Bing Chilling
