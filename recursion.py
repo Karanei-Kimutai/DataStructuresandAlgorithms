@@ -151,7 +151,7 @@ print(primeNumberValidation(7))
 
 
 #7.Write a recursive function that computes the nth number of the Fibonacci sequence
-@lru_cache(maxsize=128)#The maxsize parameter is the maximum number of recent function calls to cache
+@lru_cache(maxsize=500)#The maxsize parameter is the maximum number of recent function calls to cache
 def Fibonacci(nthnumberofthesequence:int):
     if nthnumberofthesequence==1:
         return 0
@@ -160,5 +160,5 @@ def Fibonacci(nthnumberofthesequence:int):
     else:
         return Fibonacci(nthnumberofthesequence-1)+Fibonacci(nthnumberofthesequence-2)
 
-print(Fibonacci(8))
+print(Fibonacci(150))
 
