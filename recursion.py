@@ -24,8 +24,8 @@ def fibonacciversion2(n:int):
         value=fibonacciversion2(n-1)+fibonacciversion2(n-2)
     fibonacciCache[n]=value  #stores results of previously computed fibonacci numbers thus avoiding redundant calculations
     return value
-
-for i in range(10):
+print()
+for i in range(1,10):
     print(f"{i}:{fibonacciversion2(i)}")
 
 @lru_cache(maxsize=100)   #Used to cache(store) results of previously computed fibonacci numbers to avoid redundant calculations
@@ -37,7 +37,7 @@ def fibonacciversion3(nthnumberofthesequence:int):
     else:
         return fibonacciversion3(nthnumberofthesequence-1)+fibonacciversion3(nthnumberofthesequence-2)
 
-for i in range(10):
+for i in range(1,10):
     fibonacciversion3(i)
 
 #Finding the sum of a list using recursion
@@ -95,6 +95,7 @@ def productUsingRecursiveAddition(a,b):
     else:
         return -productUsingRecursiveAddition(a,-b)#If b is negative, we compute the product as if it were positive then we negate the result
 
+print(productUsingRecursiveAddition(2,3))
 #2.Define a recursive function that raises a base to an exponent without using the exponentiation operator
 def exponentUsingRecursiveMultiplication(base,exponent):
     if exponent==0:
@@ -103,6 +104,7 @@ def exponentUsingRecursiveMultiplication(base,exponent):
         return base * exponentUsingRecursiveMultiplication(base,exponent-1)
     else:
         return 1/exponentUsingRecursiveMultiplication(base,-exponent)# If the exponent is negative we compute the exponentiation as if it were positive then we find the reciprocal
+print(exponentUsingRecursiveMultiplication(2,3))
 
 #3.Implement a recursive function that prints integers from a given number down to 0
 def outputNumbersInDescendingOrder(startingpoint):
@@ -112,6 +114,8 @@ def outputNumbersInDescendingOrder(startingpoint):
         print(startingpoint,end=" ")
         outputNumbersInDescendingOrder(startingpoint-1)
 
+outputNumbersInDescendingOrder(10)
+
 #4.Implement a recursive function that prints integers from 0 upwards to a given number
 def outputNumbersInAscendingOrder(endpoint,startingpoint=0):
     if startingpoint==endpoint:
@@ -120,12 +124,16 @@ def outputNumbersInAscendingOrder(endpoint,startingpoint=0):
         print(startingpoint,end=" ")
         outputNumbersInAscendingOrder(endpoint,startingpoint+1)
 
+outputNumbersInAscendingOrder(10)
+
 #5.Write a recursive function that takes a string as an input and returns a reversed string using concatenation
 def reverseString(string:str):
     if len(string)==0:
         return ""
     else:
         return reverseString(string[1:])+string[0]
+
+print(reverseString("Karanei"))
 
 #6.Write a recursive function that determines whether a given integer is a prime number using integers less than itself
 def primeNumberValidation(number,divisor=None):
@@ -139,6 +147,9 @@ def primeNumberValidation(number,divisor=None):
         return False
     return primeNumberValidation(number,divisor-1)
 
+print(primeNumberValidation(7))
+
+
 #7.Write a recursive function that computes the nth number of the Fibonacci sequence
 @lru_cache(maxsize=128)#The maxsize parameter is the maximum number of recent function calls to cache
 def Fibonacci(nthnumberofthesequence:int):
@@ -149,5 +160,5 @@ def Fibonacci(nthnumberofthesequence:int):
     else:
         return Fibonacci(nthnumberofthesequence-1)+Fibonacci(nthnumberofthesequence-2)
 
-
+print(Fibonacci(8))
 
