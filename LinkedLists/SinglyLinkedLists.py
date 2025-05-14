@@ -84,6 +84,7 @@ class singlyLinkedList:
         print("None")
 
 
+
 #Examples
 listOfNames=singlyLinkedList()
 listOfNames.insertAtEnd("Karanei")
