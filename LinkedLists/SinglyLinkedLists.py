@@ -31,6 +31,8 @@ class singlyLinkedList:
             print(currentNode.data, end="->")
             currentNode=currentNode.nextNode
         print("None")
+
+
 listOfNames=singlyLinkedList()
 listOfNames.insertAtEnd("Karanei")
 listOfNames.insertAtEnd("Kimutai")
@@ -39,9 +41,6 @@ listOfNames.showListItems()
 
 listOfNames.insertAtBeginning("Bing Chilling")
 listOfNames.showListItems()
-
-
-
 listOfNumbers=singlyLinkedList()
 listOfNumbers.insertAtEnd(1)
 listOfNumbers.insertAtEnd(2)
