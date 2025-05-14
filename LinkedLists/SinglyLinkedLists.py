@@ -82,6 +82,9 @@ class singlyLinkedList:
             print(currentNode.data, end="->")
             currentNode=currentNode.nextNode
         print("None")
+
+
+#Examples
 listOfNames=singlyLinkedList()
 listOfNames.insertAtEnd("Karanei")
 listOfNames.insertAtEnd("Kimutai")
@@ -99,4 +102,8 @@ listOfNumbers.showListItems()
 listOfNames.deleteFromEnd()
 listOfNames.showListItems()
 listOfNumbers.deleteFromBeginning()
+listOfNumbers.showListItems()
+listOfNames.insertAtIndex(0,"Kimutai")
+listOfNames.showListItems()
+listOfNumbers.deleteFromIndex(0)
 listOfNumbers.showListItems()
