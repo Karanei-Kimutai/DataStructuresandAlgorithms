@@ -24,13 +24,13 @@ class singlyLinkedList:
             newNode.nextNode=self.headNode
             self.headNode=newNode
 
+
     def showListItems(self):
         currentNode=self.headNode
         while currentNode is not None:
             print(currentNode.data, end="->")
             currentNode=currentNode.nextNode
         print("None")
-
 listOfNames=singlyLinkedList()
 listOfNames.insertAtEnd("Karanei")
 listOfNames.insertAtEnd("Kimutai")
@@ -40,3 +40,10 @@ listOfNames.showListItems()
 listOfNames.insertAtBeginning("Bing Chilling")
 listOfNames.showListItems()
 
+
+
+listOfNumbers=singlyLinkedList()
+listOfNumbers.insertAtEnd(1)
+listOfNumbers.insertAtEnd(2)
+listOfNumbers.insertAtEnd(3)
+listOfNumbers.showListItems()
