@@ -16,6 +16,14 @@ class singlyLinkedList:
                 currentNode=currentNode.nextNode
             currentNode.nextNode=newNode
 
+    def insertAtBeginning(self,value):
+        newNode=Node(value)
+        if self.headNode is None:
+            self.headNode=newNode
+        else:
+            newNode.nextNode=self.headNode
+            self.headNode=newNode
+
     def showListItems(self):
         currentNode=self.headNode
         while currentNode is not None:
@@ -28,3 +36,7 @@ listOfNames.insertAtEnd("Karanei")
 listOfNames.insertAtEnd("Kimutai")
 listOfNames.insertAtEnd("Michael")
 listOfNames.showListItems()
+
+listOfNames.insertAtBeginning("Bing Chilling")
+listOfNames.showListItems()
+
