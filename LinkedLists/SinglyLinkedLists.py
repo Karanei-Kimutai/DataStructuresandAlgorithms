@@ -39,9 +39,6 @@ listOfNames.showListItems()
 
 listOfNames.insertAtBeginning("Bing Chilling")
 listOfNames.showListItems()
-
-
-
 listOfNumbers=singlyLinkedList()
 listOfNumbers.insertAtEnd(1)
 listOfNumbers.insertAtEnd(2)
