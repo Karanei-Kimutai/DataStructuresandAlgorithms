@@ -75,6 +75,22 @@ class singlyLinkedList:
             else:
                 currentNode.nextNode=currentNode.nextNode.nextNode
 
+    def deleteByValue(self, value):
+        if self.headNode is None:
+            print("List is empty, nothing to delete")
+            return
+        if self.headNode.data == value:
+            self.headNode = self.headNode.nextNode
+            return
+        else:
+            currentNode = self.headNode
+            while currentNode.nextNode is not None:
+                if currentNode.nextNode.data == value:
+                    currentNode.nextNode = currentNode.nextNode.nextNode
+                    return
+                else:
+                    currentNode = currentNode.nextNode
+            print("Value not found in the list")
 
     def showListItems(self):
         currentNode=self.headNode
@@ -98,6 +114,7 @@ listOfNumbers=singlyLinkedList()
 listOfNumbers.insertAtEnd(1)
 listOfNumbers.insertAtEnd(2)
 listOfNumbers.insertAtEnd(3)
+listOfNumbers.deleteByValue(3)
 listOfNumbers.showListItems()
 
 listOfNames.deleteFromEnd()
@@ -105,6 +122,7 @@ listOfNames.showListItems()
 listOfNumbers.deleteFromBeginning()
 listOfNumbers.showListItems()
 listOfNames.insertAtIndex(0,"Kimutai")
+listOfNames.deleteByValue("Kimutai")
 listOfNames.showListItems()
 listOfNumbers.deleteFromIndex(0)
 listOfNumbers.showListItems()

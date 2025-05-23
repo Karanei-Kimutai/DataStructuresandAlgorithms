@@ -108,7 +108,35 @@ class DoublyLinkedList:
                 nodeToDelete.nextNode=None #Cleanup
                 nodeToDelete.previousNode=None #Cleanup
 
-
+    def deleteByValue(self, value):
+        if self.headNode is None:
+            print("List is empty, nothing to delete")
+            return
+        if self.headNode.data == value:
+            if self.headNode.nextNode is None:
+                self.headNode = None
+            else:
+                newHead = self.headNode.nextNode
+                newHead.previousNode = None
+                self.headNode.nextNode = None  # cleanup
+                self.headNode = newHead
+            return
+        else:
+            currentNode = self.headNode
+            while currentNode is not None:
+                if currentNode.data == value:
+                    prevNode = currentNode.previousNode
+                    nextNode = currentNode.nextNode
+                    if prevNode is not None:
+                        prevNode.nextNode = nextNode
+                    if nextNode is not None:
+                        nextNode.previousNode = prevNode
+                    currentNode.nextNode = None  # cleanup
+                    currentNode.previousNode = None  # cleanup
+                    return
+                else:
+                    currentNode = currentNode.nextNode
+            print("Value not found in the list")
 
     def displayForward(self):
         if self.headNode is None:
@@ -145,6 +173,8 @@ listOfNames.insertAtIndex(2,"Maximus")
 listOfNames.insertAtIndex(3,"Decimus")
 listOfNames.deleteFromBeginning()
 listOfNames.deleteFromEnd()
+listOfNames.deleteByValue("Decimus")
 listOfNames.deleteFromIndex(1)
 listOfNames.displayForward()
 listOfNames.displayBackward()
+

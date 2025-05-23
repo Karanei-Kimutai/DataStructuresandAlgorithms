@@ -110,6 +110,30 @@ class CircularDoublyLinkedList:
                 nodeToDelete.nextNode=None
                 nodeToDelete.previousNode=None
 
+    def deleteByValue(self,value):
+        if self.headNode is None:
+            print("This list is empty, nothing to delete")
+            return
+        else:
+            currentNode=self.headNode
+            while True:
+                if currentNode.data==value:
+                    if currentNode.nextNode==currentNode:
+                        self.headNode=None
+                    else:
+                        previousNode=currentNode.previousNode
+                        nextNode=currentNode.nextNode
+                        previousNode.nextNode=nextNode
+                        nextNode.previousNode=previousNode
+                        if currentNode==self.headNode:
+                            self.headNode=nextNode
+                    return
+                else:
+                    currentNode=currentNode.nextNode
+                if currentNode==self.headNode:
+                    break
+                print("Value not found in the list")
+
     def displayForward(self):
         if self.headNode is None:
             print("This list is empty")
@@ -128,6 +152,7 @@ class CircularDoublyLinkedList:
             print("This list is empty")
             return
         else:
+            print("Backward traversal:")
             currentNode=self.headNode.previousNode
             while True:
                 print(currentNode.data,end="<->")
@@ -146,5 +171,6 @@ listOfNames.insertAtIndex(3,"Decimus")
 listOfNames.deleteFromBeginning()
 listOfNames.deleteFromEnd()
 listOfNames.deleteFromIndex(1)
+listOfNames.deleteByValue("Decimus")
 listOfNames.displayForward()
 listOfNames.displayBackward()

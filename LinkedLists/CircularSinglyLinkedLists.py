@@ -102,6 +102,35 @@ class circularSinglyLinkedList:
                 currentNode.nextNode=nodeToDelete.nextNode
                 nodeToDelete.nextNode=None #cleanup
 
+    def deleteByValue(self,value):
+        if self.headNode is None:
+            print("This list is empty, nothing to delete")
+            return
+        else:
+            currentNode=self.headNode
+            previousNode=None
+            while True:
+                if currentNode.data==value:
+                    if currentNode==self.headNode:
+                        if currentNode.nextNode==self.headNode:
+                            self.headNode=None
+                        else:
+                            temp=self.headNode
+                            while temp.nextNode!=self.headNode:
+                                temp=temp.nextNode
+                            temp.nextNode=currentNode.nextNode
+                            self.headNode=currentNode.nextNode
+                    else:
+                        previousNode.nextNode=currentNode.nextNode
+                    return
+                else:
+                    previousNode=currentNode
+                    currentNode=currentNode.nextNode
+                if currentNode==self.headNode:
+                    break
+        print("Value not found in the list")
+
+
 
     def display(self):
         if self.headNode is None:
@@ -126,8 +155,8 @@ listOfNames.insertAtIndex(3,"Decimus")
 listOfNames.deleteFromBeginning()
 listOfNames.deleteFromEnd()
 listOfNames.deleteFromIndex(1)
+listOfNames.deleteByValue("Maximus")
 listOfNames.display()
 
 
 
-#circular doubly linked list
