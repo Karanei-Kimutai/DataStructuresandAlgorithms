@@ -1,4 +1,4 @@
-def palindromeCheckUsingStacks(string):
+def palindromeCheckUsingStacks(string)->bool:
     stack=[]
     for character in string:
         stack.append(character)
