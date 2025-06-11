@@ -81,7 +81,13 @@ try:
 except TypeError as e:
     print("Error: the node onto which you want to add another node does not exist")
 
-print("Inorder:",rootNode.inOrderTraversal())
-print("Preorder:",rootNode.preOrderTraversal())
-print("Postorder:",rootNode.postOrderTraversal())
+print("Inorder Traversal")
+for i in rootNode.inOrderTraversal():
+    print(i)
+print("Preorder Traversal")
+for i in rootNode.preOrderTraversal():
+    print(i)
+print("Postorder Traversal")
+for i in rootNode.postOrderTraversal():
+    print(i)
 print("Height:",rootNode.height())
