@@ -1,3 +1,4 @@
+import re  #import the regular expressions module
 def palindromeCheckUsingStacks(string)->bool:
     stack=[]
     for character in string:
@@ -12,5 +13,6 @@ def palindromeCheckUsingStacks(string)->bool:
         print("This string is not a palindrome")
         return False
 
-userInput=input("Enter the string you want to test:").strip().lower().replace(" ","") #remove whitespaces, make it case-insensitive, ignore whitespaces
-palindromeCheckUsingStacks(userInput)
+userInput=input("Enter the string you want to test:")
+cleanedUserInput=re.sub(r'[^a-z]','',userInput.lower())#removes everything except lowercase letters, it removes numbers, punctuation and symbols
+palindromeCheckUsingStacks(cleanedUserInput)
