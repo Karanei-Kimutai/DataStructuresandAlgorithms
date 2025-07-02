@@ -10,15 +10,10 @@ def getNumberOfStudents():
       except ValueError:
         print("Invalid Input")
 
-
-
-
-
-
-def getNamesandScores():
+def getNamesandScores(numberofStudents):
     namesofstudents = []
     scoresofstudents = []
-    for i in range(getNumberOfStudents()):
+    for i in range(numberofStudents):
         nameinput = input("Enter the name of the student: ")
         while True:
             try:
@@ -53,7 +48,9 @@ def outputResults(namesandscores):
     for i in range(len(names)):
         print(f"{names[i]:<15}{scores[i]:<10.2f}{getGrade(scores[i])}")
 
-
-outputResults(getNamesandScores())
+if __name__=="__main__":
+   numberOfStudents=getNumberOfStudents()
+   namesAndScores=getNamesandScores(numberOfStudents)
+   outputResults(namesAndScores)
 
 
